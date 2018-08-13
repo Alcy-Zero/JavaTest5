@@ -1,0 +1,29 @@
+## 数据源配置
+spring:
+  datasource:
+    url: jdbc:mysql://192.168.99.100:3306/sakila?useUnicode=true&characterEncoding=utf8
+    username: root
+    password: 123456
+    driver-class-name=: com.mysql.jdbc.Driver
+  http:
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+
+## Mybatis 配置
+mybatis:
+  typeAliasesPackage: com.hand.demo.domain
+  mapperLocations: classpath:mapper/*.xml
+
+##端口配置
+server:
+  port: 8080
+
+#配置日志
+# 不同目录下的日志可配置不同级别
+logging:
+  level:
+    com.hand.demo: debug
+    org.springframework.web: info
+  file: Exam1/log/xxx.log

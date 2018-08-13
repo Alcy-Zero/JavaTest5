@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hand.demo.dao.CustomerDao">
+
+    <resultMap id="CustomerResultMap" type="com.hand.demo.domain.Customer">
+        <result column="customer_id" property="customerId"/>
+        <result column="store_id" property="storeId"/>
+        <result column="first_name" property="firstName"/>
+        <result column="last_name" property="lastName"/>
+        <result column="email" property="email"/>
+        <result column="address_id" property="addressId"/>
+        <result column="create_date" property="createDate"/>
+        <result column="last_update" property="lastUpdate"/>
+    </resultMap>
+
+    <parameterMap id="Customer" type="com.hand.demo.domain.Customer"/>
+
+    <sql id="Customer_Column_List">
+        customer_id, store_id, first_name, last_name, email, address_id, create_date
+    </sql>
+
+    <!--useGeneratedKeys="true" keyProperty="customerId"-->
+    <insert id="saveCustomer" parameterMap="Customer" useGeneratedKeys="true" keyProperty="customerId">
+        insert into
+        customer(store_id, first_name, last_name, email, address_id, create_date)
+        values
+        (#{storeId},#{firstName},#{lastName},#{email},#{addressId},#{createDate})
+    </insert>
+
+    <update id="updateCustomer" parameterMap="Customer">
+        update
+        customer
+        set
+        <if test="customerId!=null">
+            customer_id = #{customerId},
+        </if>
+        <if test="storeId!=null">
+            store_id = #{storeId},
+        </if>
+        <if test="firstName!=null">
+            first_name = #{firstName},
+        </if>
+        <if test="lastName!=null">
+            last_name = #{lastName}
+        </if>
+        <if test="email!=null">
+            email = #{email}
+        </if>
+        <if test="addressId!=null">
+            address_id = #{addressId}
+        </if>
+        where
+        customer_id = #{customerId}
+    </update>
+
+    <delete id="deleteCustomer" parameterType="java.lang.Long">
+        delete from
+        customer
+        where
+        customer_id = #{customerId}
+    </delete>
+</mapper>

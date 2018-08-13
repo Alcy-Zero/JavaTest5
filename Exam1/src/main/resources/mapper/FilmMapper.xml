@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hand.demo.dao.FilmDao">
+
+    <resultMap id="FilmResultMap" type="com.hand.demo.domain.Film">
+        <result column="film_id" property="filmId"/>
+        <result column="title" property="title"/>
+        <result column="description" property="description"/>
+    </resultMap>
+
+    <parameterMap id="Film" type="com.hand.demo.domain.Film"/>
+
+    <sql id="Film_Column_List">
+        film_id, title, description
+    </sql>
+
+    <select id="findAllFilm" resultMap="FilmResultMap">
+        select
+        <include refid="Film_Column_List"/>
+        from film
+        order by film_id
+    </select>
+
+</mapper>
