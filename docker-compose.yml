@@ -13,6 +13,7 @@ services:
     - ./mysql/mysql_db.cnf:/etc/mysql/conf.d/mysql_db.cnf
     expose:
     - "3306"
+    - "9090"
   java:
     container_name: java-5
     build: .

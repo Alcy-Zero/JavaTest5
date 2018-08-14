@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.hand.demo.dao.CustomerDao">
+<mapper namespace="com.hand.demo.infra.mapper.CustomerMapper">
 
-    <resultMap id="CustomerResultMap" type="com.hand.demo.domain.Customer">
+    <resultMap id="CustomerResultMap" type="com.hand.demo.domain.entity.Customer">
         <result column="customer_id" property="customerId"/>
         <result column="store_id" property="storeId"/>
         <result column="first_name" property="firstName"/>
@@ -10,30 +10,32 @@
         <result column="email" property="email"/>
         <result column="address_id" property="addressId"/>
         <result column="create_date" property="createDate"/>
-        <result column="last_update" property="lastUpdate"/>
     </resultMap>
 
-    <parameterMap id="Customer" type="com.hand.demo.domain.Customer"/>
+    <parameterMap id="Customer" type="com.hand.demo.domain.entity.Customer"/>
 
     <sql id="Customer_Column_List">
         customer_id, store_id, first_name, last_name, email, address_id, create_date
     </sql>
+
+    <select id="login" resultType="java.lang.Long">
+        select customer_id from customer
+        where customer.first_name=#{name}
+        AND customer.last_name=#{password}
+    </select>
 
     <!--useGeneratedKeys="true" keyProperty="customerId"-->
     <insert id="saveCustomer" parameterMap="Customer" useGeneratedKeys="true" keyProperty="customerId">
         insert into
         customer(store_id, first_name, last_name, email, address_id, create_date)
         values
-        (#{storeId},#{firstName},#{lastName},#{email},#{addressId},#{createDate})
+        (#{storeId},#{firstName},#{lastName},#{email},#{addressId},current_date)
     </insert>
 
     <update id="updateCustomer" parameterMap="Customer">
         update
         customer
         set
-        <if test="customerId!=null">
-            customer_id = #{customerId},
-        </if>
         <if test="storeId!=null">
             store_id = #{storeId},
         </if>
@@ -41,10 +43,10 @@
             first_name = #{firstName},
         </if>
         <if test="lastName!=null">
-            last_name = #{lastName}
+            last_name = #{lastName},
         </if>
         <if test="email!=null">
-            email = #{email}
+            email = #{email},
         </if>
         <if test="addressId!=null">
             address_id = #{addressId}

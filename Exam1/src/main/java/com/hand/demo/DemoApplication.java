@@ -7,7 +7,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-@MapperScan("com.hand.demo.dao")
+@MapperScan("com.hand.demo.infra.mapper")
 public class DemoApplication {
 
     protected static final Logger logger = LoggerFactory.getLogger(DemoApplication.class);

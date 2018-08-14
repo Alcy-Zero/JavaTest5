@@ -1,4 +1,4 @@
-package com.hand.demo.domain;
+package com.hand.demo.domain.entity;
 
 public class Film {
     private Long filmId;

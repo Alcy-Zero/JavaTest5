@@ -154,6 +154,7 @@
         </pluginManagement>
 
         <sourceDirectory>src/main/java</sourceDirectory>
+
         <finalName>Exam1</finalName><!--jar文件的名字-->
 
         <plugins>
@@ -189,12 +190,6 @@
         </plugins>
 
         <resources>
-            <resource>
-                <directory>src/main/java</directory>
-                <includes>
-                    <include>**/*.xml</include>
-                </includes>
-            </resource>
             <!--打入jar包-->
             <resource>
                 <directory>src/main/resources</directory>

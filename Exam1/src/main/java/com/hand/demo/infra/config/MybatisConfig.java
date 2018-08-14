@@ -1,4 +1,4 @@
-package com.hand.demo.conf;
+package com.hand.demo.infra.config;
 
 import com.github.pagehelper.PageHelper;
 import org.springframework.context.annotation.Bean;

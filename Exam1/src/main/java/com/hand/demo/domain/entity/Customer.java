@@ -1,16 +1,22 @@
-package com.hand.demo.domain;
+package com.hand.demo.domain.entity;
 
 import java.util.Date;
 
-public class Customer{
+public class Customer {
+
     private Long customerId;
+
+    private Byte storeId;
+
     private String firstName;
+
     private String lastName;
+
     private String email;
+
     private Long addressId;
-    private Integer storeId;
-    private String createDate;
-//    private String lastUpdate;
+
+    private Date createDate;
 
     public Long getCustomerId() {
         return customerId;
@@ -18,6 +24,14 @@ public class Customer{
 
     public void setCustomerId(Long customerId) {
         this.customerId = customerId;
+    }
+
+    public Byte getStoreId() {
+        return storeId;
+    }
+
+    public void setStoreId(Byte storeId) {
+        this.storeId = storeId;
     }
 
     public String getFirstName() {
@@ -52,27 +66,11 @@ public class Customer{
         this.addressId = addressId;
     }
 
-    public Integer getStoreId() {
-        return storeId;
-    }
-
-    public void setStoreId(Integer storeId) {
-        this.storeId = storeId;
-    }
-
-    public String getCreateDate() {
+    public Date getCreateDate() {
         return createDate;
     }
 
-    public void setCreateDate(String createDate) {
+    public void setCreateDate(Date createDate) {
         this.createDate = createDate;
     }
-
-//    public String getLastUpdate() {
-//        return lastUpdate;
-//    }
-//
-//    public void setLastUpdate(String lastUpdate) {
-//        this.lastUpdate = lastUpdate;
-//    }
 }
