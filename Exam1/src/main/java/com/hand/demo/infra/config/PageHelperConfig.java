@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Configuration;
 import java.util.Properties;
 
 @Configuration
-public class MybatisConfig {
+public class PageHelperConfig {
     @Bean
     public PageHelper pageHelper() {
 
