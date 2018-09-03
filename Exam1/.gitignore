@@ -23,3 +23,26 @@
 /dist/
 /nbdist/
 /.nb-gradle/
+
+
+
+#### Exam1 ####
+
+Exam1/target/
+Exam1/log/
+Exam1/!.mvn/wrapper/maven-wrapper.jar
+
+
+Exam1/.apt_generated
+Exam1/.classpath
+Exam1/.factorypath
+Exam1/.project
+Exam1/.settings
+Exam1/.springBeans
+Exam1/.sts4-cache
+
+### IntelliJ IDEA ###
+Exam1/.idea
+Exam1/*.iws
+Exam1/*.iml
+Exam1/*.ipr
